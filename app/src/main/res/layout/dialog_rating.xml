@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp"
+   app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#2DA67E">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/home_frag_design">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_marginTop="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="25dp"
+            android:textSize="22sp"
+            android:text="How Would You Rate Out Your Experience?"/>
+
+        <RatingBar
+            android:id="@+id/dialog_rating_bar"
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:numStars="5"
+            android:stepSize="1"
+            android:progressDrawable="@drawable/custom_rating_bar"
+            android:layout_marginTop="7dp"
+            android:rating="4"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dialog_done_button"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/greenbutton"
+            android:layout_marginTop="16dp"
+            android:textColor="#ffff"
+            android:text="Done" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDismiss"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/greybutton"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="No, Thanks" />
+
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

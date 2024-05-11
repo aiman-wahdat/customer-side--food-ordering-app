@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#247157">
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/home_frag_design">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="How would you rate this restaurant?"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="20sp"
+            android:drawableStart="@drawable/ic_rating_one"/>
+
+        <RatingBar
+            android:id="@+id/dialog_rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1"
+            android:progressDrawable="@drawable/custom_rating_bar"
+            android:layout_marginTop="7dp"
+            android:rating="4"/>
+
+
+        <Button
+            android:id="@+id/dialog_done_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="Done" />
+
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

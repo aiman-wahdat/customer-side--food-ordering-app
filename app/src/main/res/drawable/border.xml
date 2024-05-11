@@ -1,0 +1,12 @@
+<!-- rounded_bordered_image.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background shape for the border -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@android:color/transparent" /> <!-- Transparent background -->
+            <stroke
+                android:width="10dp"
+            android:color="#18604A" /> <!-- Border color -->
+        </shape>
+    </item>
+</layer-list>
