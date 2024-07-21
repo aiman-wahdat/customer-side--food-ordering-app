@@ -1,0 +1,85 @@
+package com.example.smdproject;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import java.util.ArrayList;
+
+public class FavoritesFragment extends Fragment {
+
+    private RecyclerView recyclerView;
+    private restaurantAdapter favoriteAdapter;
+    private ArrayList<Restaurant> favoritesList;
+
+    private DatabaseReference favoritesRef;
+    current_user_singleton currentUser = current_user_singleton.getInstance();
+    ImageView payoutBackButton;
+
+    public FavoritesFragment() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_favourites, container, false);
+
+        recyclerView = view.findViewById(R.id.recyclerView);
+        payoutBackButton= view.findViewById(R.id.payoutBackButton);
+        payoutBackButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                requireActivity().onBackPressed();
+            }
+        });
+        favoritesList = new ArrayList<>();
+        favoriteAdapter = new restaurantAdapter(favoritesList);
+        recyclerView.setAdapter(favoriteAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        if (currentUser != null) {
+            String email= currentUser.getUserId();
+            String emailKey = email.replace(".", "_");
+            favoritesRef = FirebaseDatabase.getInstance().getReference("favorites").child(emailKey);
+            fetchFavorites();
+        }
+
+        return view;
+    }
+
+    private void fetchFavorites() {
+        favoritesRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                favoritesList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Restaurant restaurant = snapshot.getValue(Restaurant.class);
+                    restaurant.setFavorite(true);
+                    favoritesList.add(restaurant);
+                }
+                favoriteAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+}

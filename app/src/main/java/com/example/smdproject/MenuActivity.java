@@ -42,6 +42,7 @@ public class MenuActivity extends AppCompatActivity {
     String Restaurantid="";
     FloatingActionButton fabRating;
     private PopupWindow popupWindow;
+    private ImageView llFoodImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -50,6 +51,7 @@ public class MenuActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.RVMENU);
         payoutBackButton=findViewById(R.id.payoutBackButton);
         fabRating = findViewById(R.id.fabRating);
+        llFoodImage = findViewById(R.id.llFoodImage);
         recyclerView.setHasFixedSize(true);
         menuList=new ArrayList<>();
         // Assuming your RecyclerView has id 'recyclerView' in activity_menu.xml
@@ -61,6 +63,7 @@ public class MenuActivity extends AppCompatActivity {
             Restaurantid = intent.getStringExtra("ResId");
        //     Toast.makeText(this, "MenuActi"+Restaurantid, Toast.LENGTH_SHORT).show();
             fetchMenuFromDatabase(Restaurantid);
+
         }
         fabRating.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +92,7 @@ public class MenuActivity extends AppCompatActivity {
 
         RatingBar ratingBar = dialogView.findViewById(R.id.dialog_rating_bar);
         Button doneButton = dialogView.findViewById(R.id.dialog_done_button);
+        Button cancelButon = dialogView.findViewById(R.id.btnDismiss);
       //  TextView TvRating = dialogView.findViewById(R.id.TvRating);
 
         AlertDialog dialog = builder.create();
@@ -134,6 +138,13 @@ public class MenuActivity extends AppCompatActivity {
 
             }
         });
+        cancelButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
     }
 
 

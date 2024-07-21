@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "230743681266",
+    "firebase_url": "https://smdprojectuserauthentication-default-rtdb.firebaseio.com",
+    "project_id": "smdprojectuserauthentication",
+    "storage_bucket": "smdprojectuserauthentication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230743681266:android:19f0e6287b938feffc886b",
+        "android_client_info": {
+          "package_name": "com.example.smd_project_userauthentication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGLYnqpcySd5KdbuCRwGcjm2Kqmbs95h0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230743681266:android:237986cc5850f78efc886b",
+        "android_client_info": {
+          "package_name": "com.example.smdproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGLYnqpcySd5KdbuCRwGcjm2Kqmbs95h0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

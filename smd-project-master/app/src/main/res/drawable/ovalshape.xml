@@ -1,0 +1,12 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- Set the placeholder color (e.g., light gray) -->
+    <solid android:color="@color/black"/>
+
+    <!-- Define the size of the oval shape (same width and height) -->
+    <size
+        android:width="72dp"
+        android:height="72dp"/>
+
+</shape>
